@@ -1,5 +1,7 @@
 package ru.itmo.java;
 
+import java.util.Objects;
+
 @SuppressWarnings("all")
 public class Task2 {
 
@@ -11,21 +13,23 @@ public class Task2 {
      * - вывод 0.9
      */
     double getFractionalPart(double realNumber) {
-        return 0.0; //your code here
+        int intpart = (int)(realNumber/1);
+        return realNumber-intpart;
     }
 
     /**
      * Дан символ, верните его код. Не используйте явное приведение типов и любые библиотечные функции
      */
     int charCode(char c) {
-        return 0; //your code here
+        int res = c + 0;
+        return res;
     }
 
     /**
      * Даны 2 целых числа. Проверьте равны ли они
      */
     boolean testIfIntsEqual(Integer a, Integer b) {
-        return false; //your code here
+        return a.equals(b);
     }
 
     /**
@@ -38,36 +42,49 @@ public class Task2 {
      * @param inclusively входят ли границы в заданный даипазон
      */
     boolean numberInRange(Integer number, Integer leftBound, Integer rightBound, Boolean inclusively) {
-        return false; //your code here
+        if (Objects.isNull(number) || Objects.isNull(leftBound) || Objects.isNull(rightBound) || Objects.isNull(inclusively)) return false;
+        if (inclusively){
+            if (number >= leftBound && number <= rightBound) return true;
+            return false;
+        }
+        else
+            if (number > leftBound && number< rightBound) return true;
+            return false;
     }
 
     /**
      * Даны 3 символа. Определите является ли хотя бы один из них цифрой 1..9
      */
     boolean atLeastOneIsDigit(char c1, char c2, char c3) {
-        return false; //your code here
+        return Character.isDigit(c1) | Character.isDigit(c2) | Character.isDigit(c3);
     }
 
     /**
      * Даны два вещественных числа. Определите равны ли они
      */
     boolean areRealNumbersEqual(double a, double b) {
-        return false; //your code here
+        double c = 0.0001;
+        return Math.abs(a-b) < c;
     }
 
     /**
      * Дано трехзначное число 100 <= N <= 999. Найдите сумму его чисел.
      */
     int sumOfDigits(int n) {
-        return 0; //your code here
+        int last = n % 10;
+        int middle = (n / 10) % 10;
+        int first = n/100;
+        return last+middle+first;
     }
 
     /**
      * Дано натуральное число N <= 10000. Выведите следующее после N четное число. Например: N = 8, Result = 10
      */
     int nextEvenNumber(int n) {
-        return 0; //your code here
-    }
+        if (n%2 == 0)
+            return n+2;
+        else return n+1;
+        }
 
     /**
      * Школа №32 решила создать 3 дополнительных физмат класса и укомплектовать кабинеты новыми партами.
@@ -76,14 +93,23 @@ public class Task2 {
      * своем кабинете
      */
     int schoolDesks(int num1, int num2, int num3) {
-        return 0; //your code here
+        int res = 0;
+        int[] studentsArr = new int[]{num1, num2, num3};
+        for (int num:studentsArr
+             ) {
+            if (num % 2 == 0)
+                res += num/2;
+            else res+=num/2 + 1;
+        }
+        return res;
     }
 
     /**
      * Дано натуральное число N >= 10. Выведите результат применения XOR к последним 2-м цифрам числа N
      */
     int xorDigits(int N) {
-        return 0; //your code here
+        int last1 = N %10;
+        int last2 = (N%100) /10;
+        return last1^last2;
     }
-
 }
