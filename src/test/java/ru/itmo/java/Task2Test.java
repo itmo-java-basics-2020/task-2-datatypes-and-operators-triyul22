@@ -8,6 +8,7 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Random;
 
+
 @SuppressWarnings({"UnnecessaryBoxing", "deprecation", "CachedNumberConstructorCall", "RedundantCast"})
 public class Task2Test {
 
@@ -90,7 +91,6 @@ public class Task2Test {
         Assert.assertTrue(inst.numberInRange(13, 13, 13, true));
         Assert.assertTrue(inst.numberInRange(11, 10, 100_000_000, true));
         Assert.assertFalse(inst.numberInRange(10, 10, 100_000_000, false));
-
     }
 
     @Test
